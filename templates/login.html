@@ -1,1 +1,71 @@
-<form method='POST'><input name='email'><input name='password' type='password'><button type='submit'>Login</button></form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | ShellCoach</title>
+  <style>
+    body {
+      background-color: #0A0F2C;
+      font-family: Arial, sans-serif;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #131933;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(42, 245, 167, 0.3);
+      max-width: 400px;
+      width: 100%;
+    }
+    h1 {
+      color: #2AF5A7;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2AF5A7;
+      color: #0A0F2C;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .logo {
+      width: 100px;
+      margin: 0 auto 20px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/static/img/kernelplus_logo.png" alt="Kernel+ Academy Logo" class="logo">
+    <h1>Welcome Back</h1>
+    <form method="POST">
+      <label for="email">Email</label>
+      <input name="email" type="email" required>
+      <label for="password">Password</label>
+      <input name="password" type="password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
