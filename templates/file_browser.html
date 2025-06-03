@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File Browser</title>
+    <style>
+        ul { list-style-type: none; }
+        .folder { font-weight: bold; margin: 5px 0; }
+        .file { margin-left: 20px; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Simulated File System</h1>
+
+    <form action="/create-file" method="POST">
+        <h3>Create New File</h3>
+        <input name="filename" placeholder="File name" required>
+        <textarea name="content" placeholder="File content" rows="4" cols="50"></textarea>
+        <br>
+        <button type="submit">Create</button>
+    </form>
+
+    <ul>
+        {% for filename, file in files.items() %}
+            <li>
+                <form action="/edit-file" method="POST">
+                    <span class="file">{{ filename }} ({{ file.permissions }})</span><br>
+                    <textarea name="content" rows="2" cols="50">{{ file.content }}</textarea>
+                    <input type="hidden" name="filename" value="{{ filename }}">
+                    <br>
+                    <button type="submit">Save Changes</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
