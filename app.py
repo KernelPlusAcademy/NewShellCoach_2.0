@@ -56,11 +56,16 @@ def dashboard():
     return render_template('dashboard.html', user=user)  # Pass the user object to the template
 
 
-
 def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('login'))
     return render_template('dashboard.html')
+
+@app.route('/terminal')
+def terminal():
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+    return render_template('terminal.html')
 
 @app.route('/logout')
 def logout():
