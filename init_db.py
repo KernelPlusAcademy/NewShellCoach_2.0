@@ -1,5 +1,5 @@
-from app import db, app
+from app import db
+from app import User  # Make sure User model is imported if defined in app.py
 
-with app.app_context():
-    db.create_all()
-    print("✅ Database tables created successfully.")
+db.create_all()
+print("✅ Database and tables created.")
