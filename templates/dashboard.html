@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | ShellCoach</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0A0F2C;
+      color: #FFFFFF;
+    }
 
+    .header {
+      background-color: #131933;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .header h1 {
+      color: #2AF5A7;
+      margin: 0;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .role {
+      color: #F7C948;
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .actions {
+      margin-top: 30px;
+    }
+
+    .actions a {
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background-color: #2AF5A7;
+      color: #0A0F2C;
+      font-weight: bold;
+      transition: 0.2s ease-in-out;
+    }
+
+    .actions a:hover {
+      background-color: #1ddf90;
+    }
+
+    .logo {
+      width: 80px;
+      display: block;
+      margin: 0 auto 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="/static/img/kernelplus_logo.png" alt="Kernel+ Logo" class="logo">
+    <h1>Welcome to Your ShellCoach Dashboard</h1>
+  </div>
+
+  <div class="container">
+    <div class="role">
+      User Role: {{ user.role }}
+    </div>
+
+    <div class="actions">
+      <a href="/terminal">Launch ShellCoach Terminal</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+</body>
+</html>
