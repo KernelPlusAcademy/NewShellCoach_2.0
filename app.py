@@ -51,8 +51,10 @@ def login():
 def dashboard():
     if 'user_id' not in session:
         return redirect(url_for('login'))
-    user = User.query.get(session['user_id'])
-    return render_template('dashboard.html', role=user.role)
+
+    user = User.query.get(session['user_id'])  # Fetch the logged-in user from the database
+    return render_template('dashboard.html', user=user)  # Pass the user object to the template
+
 
 
 def dashboard():
