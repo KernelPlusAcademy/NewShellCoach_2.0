@@ -1,12 +1,56 @@
-<!-- templates/terminal.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>ShellCoach Terminal</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css" />
+  <style>
+    body {
+      margin: 0;
+      background-color: #0A0F2C;
+      color: white;
+      font-family: monospace;
+    }
+    #terminal-container {
+      height: 90vh;
+      width: 100%;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      padding-top: 20px;
+    }
+  </style>
 </head>
-<body style="background-color: #0A0F2C; color: white; text-align: center;">
+<body>
   <h1>Welcome to the ShellCoach Terminal</h1>
-  <p>(Terminal simulation will go here...)</p>
+  <div id="terminal-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.js"></script>
+  <script>
+    const term = new Terminal({
+      theme: {
+        background: '#0A0F2C',
+        foreground: '#FFFFFF'
+      }
+    });
+
+    term.open(document.getElementById('terminal-container'));
+    term.writeln('ShellCoach AI Terminal Ready');
+    term.prompt = () => {
+      term.write('\\n$ ');
+    };
+
+    term.prompt();
+
+    term.onKey(e => {
+      const char = e.key;
+      if (char === '\r') {
+        term.prompt();
+      } else {
+        term.write(char);
+      }
+    });
+  </script>
 </body>
 </html>
