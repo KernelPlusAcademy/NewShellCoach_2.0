@@ -1,7 +1,6 @@
-from app import db, User
-from app import app  # Make sure the app context is available
+from app import app, db, User
 
-# Create the database and tables
+# Ensure you're within the app context
 with app.app_context():
     db.create_all()
     print("✅ Database and tables created successfully.")
